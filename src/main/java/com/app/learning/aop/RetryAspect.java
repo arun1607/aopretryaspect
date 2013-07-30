@@ -4,19 +4,21 @@ import java.util.Arrays;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.app.learning.exception.ApplicationException;
 import com.app.learning.exception.DataException;
 
+@Aspect
 public class RetryAspect {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(RetryAspect.class);
 
 	private int operationRetryCount = 3;
 
-	private long retrySleepTime = 1000;
+	private long retrySleepTime = 2;
 
 	@Around("execution(* com.app.learning.service.*.*(..))")
 	public Object retryDB(final ProceedingJoinPoint joinPoint)

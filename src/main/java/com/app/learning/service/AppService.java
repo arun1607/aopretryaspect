@@ -1,7 +1,7 @@
 package com.app.learning.service;
 
-import com.app.learning.exception.ApplicationException;
+import com.app.learning.exception.DataException;
 
 public interface AppService {
-	void sayHello(final int counter) throws ApplicationException;
+	void sayHello(final int counter) throws DataException;
 }
